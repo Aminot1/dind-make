@@ -5,6 +5,9 @@ on:
     branches:
       - main   # or your deployment branch
 
+env:
+  DOCKERHUB_IMAGE: aminmukh/dind-make-git
+
 jobs:
   docker:
     runs-on: ubuntu-latest
@@ -28,5 +31,5 @@ jobs:
           context: .
           push: true
           tags: |
-            $DOCKERHUB_IMAGE:latest
-            $DOCKERHUB_IMAGE:${{ github.sha }}
+            ${{ env.DOCKERHUB_IMAGE }}:latest
+            ${{ env.DOCKERHUB_IMAGE }}:${{ github.sha }}
