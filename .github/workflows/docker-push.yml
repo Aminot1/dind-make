@@ -28,5 +28,5 @@ jobs:
           context: .
           push: true
           tags: |
-            aminmukh/dind-make-git:latest
-            aminmukh/dind-make-git:${{ github.sha }}
+            $DOCKERHUB_IMAGE:latest
+            $DOCKERHUB_IMAGE:${{ github.sha }}
