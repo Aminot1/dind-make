@@ -2,8 +2,8 @@ name: Docker Build & Push
 
 on:
   push:
-    branches:
-      - main   # or your deployment branch
+    # branches:
+    #   - *   # or your deployment branch
 
 env:
   DOCKERHUB_IMAGE: aminmukh/dind-make-git
@@ -31,5 +31,5 @@ jobs:
           context: .
           push: true
           tags: |
-            ${{ env.DOCKERHUB_IMAGE }}:latest
             ${{ env.DOCKERHUB_IMAGE }}:${{ github.sha }}
+            ${{ env.DOCKERHUB_IMAGE }}:${{ github.ref_name }}
